@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Map<String, String> map = new HashMap<String, String>();
-        map.put("Password", "18501630652");
-        map.put("UserName", "123456");
+        map.put("UserName", "18501630652");
+        map.put("Password", "123456");
         map.put("token", TOKEN);
 
         HttpVolleyUtils.doPost(getApplicationContext(), appendUrl(url_post), map, new VolleyInterface(getApplicationContext(), VolleyInterface.mListener, VolleyInterface.mErrorListtener) {

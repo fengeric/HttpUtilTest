@@ -65,20 +65,10 @@ public class Main2 extends Activity {
         });
 
         HashMap<String, String> mapParams = new HashMap<String, String>();
-        mapParams.put("Password", "18501630652");
-        mapParams.put("UserName", "123456");
+        mapParams.put("UserName", "18501630652");
+        mapParams.put("Password", "123456");
         mapParams.put("token", TOKEN);
-        util.doPost(appendUrl(url_post), mapParams, new onDataCallBack() {
-            @Override
-            public void onSuccess(String result) {
-                textView2.setText(result);
-            }
-
-            @Override
-            public void onFailure(HttpException e, String errorResutl) {
-                textView2.setText("e.toString:" + e.toString() + "\n" + "errorResult:" + errorResutl);
-            }
-        });
+        util.doPost(appendUrl(url_post), mapParams, onDataCallBack);
     }
 
 
@@ -86,4 +76,17 @@ public class Main2 extends Activity {
     public void bt(View view) {
         Toast.makeText(getApplicationContext(), "ViewUtils依赖注入", Toast.LENGTH_LONG).show();
     }
+
+    onDataCallBack onDataCallBack = new onDataCallBack() {
+        @Override
+        public void onSuccess(String result) {
+            textView2.setText(result);
+        }
+
+        @Override
+        public void onFailure(HttpException e, String errorResutl) {
+            textView2.setText("e.toString:" + e.toString() + "\n" + "errorResult:" + errorResutl);
+        }
+    };
+
 }
